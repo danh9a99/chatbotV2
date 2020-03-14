@@ -1,19 +1,19 @@
 // # SimpleServer
 // A simple chat bot server
-var logger = require('morgan');
 var http = require('http');
 var bodyParser = require('body-parser');
 var express = require('express');
-var router = express();
 
 var app = express();
-app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 var server = http.createServer(app);
 var request = require("request");
+
+app.get('/', (req, res) => {
+  res.send("Home page. Server running okay.");
+});
 
 app.get('/', (req, res) => {
   res.send("Home page. Server running okay.");
